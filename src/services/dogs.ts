@@ -17,5 +17,8 @@ export function fetchBreeds(): Promise<string[]> {
 export function fetchImageUrlByBreed(breed: string) {
   return dogCeoApiHttpClient
     .get<DogBreedImageResponse>(`/breed/${breed}/images/random`)
-    .then((response) => response.data.message);
+    .then((response) => ({
+      name: breed,
+      imageUrl: response.data.message,
+    }));
 }

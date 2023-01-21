@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Card = styled.div`
+  font-family: "Open Sans", sans-serif;
   background-color: #ffffff;
   border: 1px solid #d9d9d9;
   border-radius: 4px;

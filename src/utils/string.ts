@@ -15,6 +15,5 @@ export function getSimilarString(name: string, list: string[]): string {
     }
   }
 
-  console.log({ similarString });
   return similarString;
 }

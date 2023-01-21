@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { ReactNode, useContext } from "react";
 import styled from "@emotion/styled";
 import { Card } from "../components/Card";
 import { AuthContext } from "../context/AuthContext";
 import { DogContext } from "../context/DogContext";
 import { Container } from "../components/Container";
+import { Spinner } from "../components/Spinner";
 
 const HomePageCard = styled(Card)`
   display: flex;
@@ -13,13 +14,13 @@ const HomePageCard = styled(Card)`
     align-items: center;
   }
 `;
-const ImgContainer = styled.div`
+const ImageContainer = styled.div`
   flex: 1;
   @media (max-width: 768px) {
     margin-bottom: 16px;
   }
 `;
-const Img = styled.img`
+const Image = styled.img`
   border-radius: 50%;
   width: 200px;
   height: 200px;
@@ -39,7 +40,16 @@ const Email = Name.withComponent("p");
 
 export function HomePage() {
   const { user } = useContext(AuthContext);
-  const { breeds, selectedBreed } = useContext(DogContext);
+  const { breeds, selectedBreed, loading } = useContext(DogContext);
+
+  function render(children: ReactNode) {
+    return <Container>{children}</Container>;
+  }
+
+  if (loading) {
+    return render(<Spinner size="60px" />);
+  }
+
   if (!breeds.length || !selectedBreed) {
     return null;
   }
@@ -47,12 +57,12 @@ export function HomePage() {
   return (
     <Container>
       <HomePageCard>
-        <ImgContainer>
-          <Img
+        <ImageContainer>
+          <Image
             src={selectedBreed.imageUrl}
             alt={`${user!.name}'s profile picture`}
           />
-        </ImgContainer>
+        </ImageContainer>
         <InfoContainer>
           <Name>{user!.name}</Name>
           <Email>{user!.email}</Email>

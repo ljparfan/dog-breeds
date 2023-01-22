@@ -1,6 +1,6 @@
 export function getSimilarString(name: string, list: string[]): string {
   let maxSimilarity = 0;
-  let similarString = "";
+  let similarString = list[0];
 
   for (const str of list) {
     let similarity = 0;

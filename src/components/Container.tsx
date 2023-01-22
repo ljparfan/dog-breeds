@@ -5,12 +5,11 @@ export const Container = styled.div`
   margin: 0 auto;
   max-width: 1200px;
   width: 100%;
+  font-family: "Open Sans", sans-serif;
 
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
-
-  @media (max-width: 768px) {
-  }
 `;

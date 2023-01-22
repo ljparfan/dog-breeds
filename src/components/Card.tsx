@@ -7,6 +7,10 @@ export const Card = styled.div`
   border-radius: 4px;
   padding: 16px;
   width: 100%;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 export const CardTitle = styled.h3`
   margin: 0;

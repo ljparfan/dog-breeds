@@ -32,11 +32,13 @@ const InfoContainer = styled.div`
   justify-content: center;
   margin-left: 16px;
 `;
-const Name = styled.h2`
+const BreedName = styled.h2`
   margin: 0;
 `;
 
-const Email = Name.withComponent("p");
+const Email = BreedName.withComponent("p");
+
+const Name = BreedName.withComponent("h3");
 
 export function HomePage() {
   const { user } = useContext(AuthContext);
@@ -64,6 +66,7 @@ export function HomePage() {
           />
         </ImageContainer>
         <InfoContainer>
+          <BreedName>{selectedBreed.name}</BreedName>
           <Name>{user!.name}</Name>
           <Email>{user!.email}</Email>
         </InfoContainer>

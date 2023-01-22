@@ -31,10 +31,12 @@ export const DogProvider: FC<Props> = ({ children }) => {
     initialData: [],
     refetchOnWindowFocus: false,
     onError() {
+      //No other errors expected from API
       navigate("/unexpected-error");
     },
   });
 
+  /**Whenever user details change is only the time breed value gets changed */
   const breed = useMemo(() => {
     if (user && breeds.length) {
       return getSimilarString(user.name, breeds);
@@ -47,6 +49,7 @@ export const DogProvider: FC<Props> = ({ children }) => {
     queryKey: ["breeds", breed, "imageUrl"],
     refetchOnWindowFocus: false,
     onError() {
+      //No other errors expected from API
       navigate("/unexpected-error");
     },
   });

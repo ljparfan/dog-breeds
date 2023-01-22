@@ -30,6 +30,7 @@ export function AuthPage() {
     },
 
     async onSubmit(user) {
+      /**No need to handle rejected scenario as error field from context will be truthy in that case. */
       await handleAuthentication(user);
       navigate("/");
     },
@@ -37,6 +38,7 @@ export function AuthPage() {
     validateOnMount: true,
   });
 
+  /**Needed as formik doesn't automatically set the touched property of field to true when changed */
   const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     formik.setFieldTouched(event.target.name, true);
     formik.handleChange(event);

@@ -12,6 +12,7 @@ export function App() {
         <Route
           path="/"
           element={
+            /**Add provider code here as only HomePage needs those state for now. Can be moved if more components need it */
             <DogProvider>
               <HomePage />
             </DogProvider>

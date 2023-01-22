@@ -41,6 +41,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
         setUser(user);
         resolve();
       } catch (error) {
+        /**Not expecting any errors from API so any errors coming from API are unexpected */
         const errorMessage = "An unexpected error occurred";
 
         setError(errorMessage);

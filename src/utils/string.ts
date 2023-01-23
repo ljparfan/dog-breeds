@@ -1,4 +1,6 @@
 export function getSimilarString(name: string, list: string[]): string {
+  name = name.toLowerCase();
+  list = list.map((str) => str.toLowerCase());
   let maxSimilarity = 0;
   let similarString = list[0];
 
